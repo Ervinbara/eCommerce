@@ -43,3 +43,9 @@ body{
     height: 20px;
     padding-left: 20px;
 }
+
+.form-check{
+    background-color: azure;
+    padding: 20px 65px;
+    margin-top: 7px;
+}

@@ -6,15 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AccountController extends AbstractController
+class FakePaymentController extends AbstractController
 {
-    /**
-     * @Route("/compte", name="app_account")
-    */
+    #[Route('/fake/payment', name: 'app_fake_payment')]
     public function index(): Response
     {
-        return $this->render('account/index.html.twig', [
-            'controller_name' => 'AccountController',
+        return $this->render('fake_payment/index.html.twig', [
+            'controller_name' => 'FakePaymentController',
         ]);
     }
 }

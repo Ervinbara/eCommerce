@@ -29,7 +29,3 @@ app_admin:
 app_products:
     path: /nos-produits
     controller: App\Controller\ProductController::index
-
-# app_product:
-#     path: /produit/
-#     controller: App\Controller\ProductController::show

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake form</title>
+    <link href="{{asset('assets/css/fake_card.css')}}" rel="stylesheet">
+</head>
+<body>
+    <h1>Fake payment form please do not enter your real bank information.</h1>
+    <form id="payment-form">
+        <label for="name">Nom</label>
+        <input type="text" id="name" required placeholder="John Doe" pattern="[A-Za-z\s]+" title="Veuillez saisir uniquement des lettres et espaces.">
+    
+        <label for="card-number">Numéro de carte</label>
+        <input type="text" id="card-number" required placeholder="xxxx xxxx xxxx xxxx" maxlength="19" inputmode="numeric" pattern="\d{4}\s\d{4}\s\d{4}\s\d{4}">
+
+    
+        <label for="expiry-date">Date d'expiration (MM/YY)</label>
+        <input type="text" id="expiry-date" required placeholder="MM/YY" maxlength="5" pattern="\d{2}\/\d{2}" title="Veuillez saisir une date au format MM/YY">
+    
+        <label for="cvc">CVC</label>
+        <input type="text" id="cvc" required placeholder="123" maxlength="3" pattern="\d{3}" title="Veuillez saisir un code CVC à 3 chiffres.">
+    
+        <button id="pay-button" type="submit">Payer</button>
+        <div id="processing" style="display: none;">
+            Traitement en cours... <img src="{{ asset('assets/images/spinner.gif') }}" alt="Processing">
+        </div>
+        
+        <div id="success-message" style="display: none;">
+            Le paiement a été effectué avec succès!
+        </div>
+    </form>
+    
+    
+
+    <script src="{{asset('assets/js/fake_card.js')}}"></script>
+</body>
+</html>
