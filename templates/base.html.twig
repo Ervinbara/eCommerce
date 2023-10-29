@@ -6,7 +6,7 @@
     <meta name="description" content="Old money clothes">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
-    <title>{% block title %} Old money clothes - 100% Made in France {% endblock %} </title>
+    <title>{% block title %} The fundamentals clothes - 100% Made in France {% endblock %} </title>
 
     <!--FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -14,7 +14,6 @@
     <!-- Bootstrap core CSS -->
     <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
     <link  href="{{asset('assets/css/style.css')}}" rel="stylesheet">
-    {% block javascript %}{% endblock %}
     {% block stylesheet %}{% endblock %}
     <style>
         .bd-placeholder-img {
@@ -38,7 +37,7 @@
 <body>
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="{{ path('app_home') }}">Old money clothes</a>
+        <a class="navbar-brand" href="{{ path('app_home') }}">The fundamentals</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -46,8 +45,11 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ path('app_products') }}">Nos produits <span class="sr-only">(current)</span></a>
-                    <a class="nav-link" href="{{ path('app_home') }}">Qui sommes nous ?</a>
-                    <a class="nav-link" href="{{ path('app_home') }}">Contact <span class="sr-only"></span></a>
+                    <a class="nav-link" href="#">Qui sommes nous ?</a>
+                    <a class="nav-link" href="#">Contact <span class="sr-only"></span></a>
+                    <a href="{{ path('app_cart') }}" class="mobile-cart">
+                        Panier
+                    </a>
                 </li>
             </ul>
             
@@ -59,7 +61,7 @@
                 {% endif %}
             </div>
             
-            <a href="{{ path('app_cart') }}">
+            <a href="{{ path('app_cart') }}" class="laptop-cart">
                 <img src="{{asset('assets/images/shopping-cart.png')}}" class="cart-icon" alt="">
             </a>
         </div>
@@ -145,6 +147,7 @@
         </p>
     </footer> #}
 </main>
+{% block javascript %}{% endblock %}
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/7.1.1/imask.min.js"></script>
 

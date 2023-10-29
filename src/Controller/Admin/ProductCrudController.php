@@ -13,6 +13,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use PHPUnit\TextUI\XmlConfiguration\CodeCoverage\Report\Text;
 
 class ProductCrudController extends AbstractCrudController
 {
@@ -34,6 +35,7 @@ class ProductCrudController extends AbstractCrudController
                 ->setRequired(false),
             TextField::new('subtitle'),
             TextareaField::new('description'),
+            TextField::new('link'),
             // BooleanField::new('isBest'),
             MoneyField::new('price')->setCurrency('EUR'),
             AssociationField::new('category')

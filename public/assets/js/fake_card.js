@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Redirection vers la page d'accueil
                 setTimeout(function() {
                     window.location.href = "/"; // Mettez ici le chemin de votre page d'accueil si ce n'est pas la racine
-                }, 3000); // Redirige après 3 secondes (3000 millisecondes)
+                }, 2000); // Redirige après 3 secondes (3000 millisecondes)
             }, 3000);
         }
     });
