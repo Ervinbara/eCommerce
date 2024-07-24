@@ -12,6 +12,8 @@ body {
   margin: 0;
   background: #000;
   background-size: cover;
+  color: #fff;
+  font-family: 'Moderne Sans', sans-serif;
 }
 
 video {
@@ -22,6 +24,7 @@ video {
   height: 100%;
   object-fit: cover;
   object-position: center;
+  z-index: -1;
 }
 
 div#fashion {
@@ -33,15 +36,16 @@ div#fashion {
 
 header {
   position: fixed;
+  top: 0;
   width: 100%;
   text-align: center;
-  color: white;
+  padding: 1rem 0;
   transition: 0.4s;
 }
 
 header:hover {
-  background: rgba(255, 255, 255, 0.4);
-  color: #000;
+  /* background: rgba(255, 255, 255, 0.4); */
+  color: #ececec;
 }
 
 h1 {
@@ -50,6 +54,7 @@ h1 {
   font-size: 2rem;
   width: 100%;
   letter-spacing: 0.5rem;
+  margin: 0;
 }
 
 nav a {
@@ -87,23 +92,71 @@ nav a:focus {
   margin: 0;
 }
 
+.cta {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1.2em;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.cta:hover {
+  background: #fff;
+  color: #000;
+}
+
+.cta::after {
+  content: '→';
+  margin-left: 10px;
+  transition: margin-left 0.3s ease;
+}
+
+.cta:hover::after {
+  margin-left: 15px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.cta {
+  animation: pulse 2s infinite;
+}
+
 @media screen and (max-width: 768px) {
   h1 {
-      font-size: x-large;
+    font-size: x-large;
   }
   nav a {
-      font-size: medium;
+    font-size: medium;
   }
 }
 
 @media screen and (max-width: 480px) {
   .btn-link {
-      font-size: 5vmin;
+    font-size: 5vmin;
   }
   h1 {
-      font-size: large;
+    font-size: large;
   }
   nav a {
-      font-size: small;
+    font-size: small;
   }
 }

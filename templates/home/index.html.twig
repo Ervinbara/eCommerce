@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The fundamentals</title>
+    <title>The Fundamentals</title>
     <link href="{{ asset('assets/css/home.css') }}" rel="stylesheet">
     <meta name="description" content="Découvrez The Fundamentals, votre destination e-commerce pour les produits de qualité.">
     <meta property="og:title" content="The Fundamentals">
@@ -20,21 +20,9 @@
 
 <header>
     <h1>The Fundamentals</h1>
-    <nav>
-        {% if app.user %}
-            <a href="{{ path('app_account') }}">Mon compte <small>({{ app.user.firstname }})</small></a> | <a href="{{ path('app_logout') }}">Déconnexion</a> |
-        {% else %}
-            <a href="{{ path('app_login') }}">Connexion</a> | <a href="{{ path('app_register') }}">Inscription</a> |
-        {% endif %}
-        <a href="#">Contact</a>
-    </nav>
 </header>
 
-<div id="fashion">
-    <a href="{{ path('app_products') }}" class="btn-link">
-        <h2>Products</h2>
-    </a>
-</div>
+<a href="{{ path('app_products') }}" class="cta">Discover Our Products</a>
 
 </body>
 </html>
