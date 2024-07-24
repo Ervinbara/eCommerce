@@ -1,33 +1,42 @@
 {% extends 'base.html.twig' %}
 
+{% block meta %}
+    <meta name="description" content="Gérez vos adresses enregistrées sur OldMoneyClothes. Ajoutez, modifiez ou supprimez des adresses pour une expérience d'achat personnalisée.">
+    <meta property="og:title" content="Mes adresses - OldMoneyClothes">
+    <meta property="og:description" content="Gérez vos adresses enregistrées sur OldMoneyClothes. Ajoutez, modifiez ou supprimez des adresses pour une expérience d'achat personnalisée.">
+    <meta property="og:url" content="{{ app.request.uri }}">
+    <meta name="twitter:card" content="summary_large_image">
+{% endblock %}
+
 {% block title %}Mes adresses - OldMoneyClothes{% endblock %}
 
 {% block content %}
-<a href="{{path('app_account_address_add')}}" class="btn btn-info btn-sm float-right">Ajouter une adresse</a>
-<h1>Mes adresses</h1>
-C'est dans cet espace que vous allez pouvoir gérer toutes vos adresses</p>
-<a href="{{path('app_account')}}">Retour</a>
-<hr>
-{% if app.user.addresses|length == 0 %}
-    <p class="text-center">Vous n'avez pas encore d'adresse sur votre compte. Pour en ajouter une, veuillez <a href="{{path('app_account_address_add')}}">cliquer ici.</a></p>
-{% else %}
-    <div class="row">
-        {% for address in app.user.addresses %}
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                    <h5 class="card-title">{{address.name}}</h5>
-                    <p class="card-text">
-                        {{address.address}},<br>
-                        {{address.postal}} - {{address.city}} - {{address.country}}
-                    </p>
-                    <a href="{{path('app_account_address_edit', { 'id' : address.id }) }}">Modifier</a> | <a href="{{path('app_account_address_delete', { 'id' : address.id }) }}">Supprimer</a>
+<div class="container mt-5">
+    <a href="{{ path('app_account_address_add') }}" class="btn btn-info btn-sm float-right mb-3">Ajouter une adresse</a>
+    <h1>Mes adresses</h1>
+    <p>C'est dans cet espace que vous allez pouvoir gérer toutes vos adresses.</p>
+    <a href="{{ path('app_account') }}" class="btn btn-secondary mb-3">Retour</a>
+    <hr>
+    {% if app.user.addresses|length == 0 %}
+        <p class="text-center">Vous n'avez pas encore d'adresse sur votre compte. Pour en ajouter une, veuillez <a href="{{ path('app_account_address_add') }}">cliquer ici.</a></p>
+    {% else %}
+        <div class="row">
+            {% for address in app.user.addresses %}
+                <div class="col-md-4 mb-4">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ address.name }}</h5>
+                            <p class="card-text">
+                                {{ address.address }}<br>
+                                {{ address.postal }} - {{ address.city }} - {{ address.country }}
+                            </p>
+                            <a href="{{ path('app_account_address_edit', { 'id': address.id }) }}" class="btn btn-primary btn-sm">Modifier</a>
+                            <a href="{{ path('app_account_address_delete', { 'id': address.id }) }}" class="btn btn-danger btn-sm">Supprimer</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
-    </div>
-
-{% endif %}
-
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
 {% endblock %}

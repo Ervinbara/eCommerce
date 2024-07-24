@@ -3,38 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fake form</title>
-    <link href="{{asset('assets/css/home.css')}}" rel="stylesheet">
+    <title>The fundamentals</title>
+    <link href="{{ asset('assets/css/home.css') }}" rel="stylesheet">
+    <meta name="description" content="Découvrez The Fundamentals, votre destination e-commerce pour les produits de qualité.">
+    <meta property="og:title" content="The Fundamentals">
+    <meta property="og:description" content="Découvrez The Fundamentals, votre destination e-commerce pour les produits de qualité.">
+    <meta property="og:image" content="{{ asset('assets/images/og_image.jpg') }}">
+    <meta property="og:url" content="{{ app.request.uri }}">
+    <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 
-  {# poster="{{ asset('assets/videos/fond.png') }}" #}
 <video playsinline autoplay muted loop>
     <source src="{{ asset('assets/videos/video_1.mp4') }}" type="video/mp4">
 </video>
-<!--
-- 9
-- 6
-- 4
-- 7
- -8
--->
 
-    <header>
-    <h1>The fundamentals</h1>
-      <nav>
+<header>
+    <h1>The Fundamentals</h1>
+    <nav>
         {% if app.user %}
-                    <a href="{{ path('app_account') }}">Mon compte <small>({{app.user.firstname}})</small></a> | <a href="{{ path('app_logout') }}">Deconnexion</a> |
+            <a href="{{ path('app_account') }}">Mon compte <small>({{ app.user.firstname }})</small></a> | <a href="{{ path('app_logout') }}">Déconnexion</a> |
         {% else %}
             <a href="{{ path('app_login') }}">Connexion</a> | <a href="{{ path('app_register') }}">Inscription</a> |
         {% endif %}
         <a href="#">Contact</a>
-    </header>
-    <div id="fashion">
-        <a href="{{ path('app_products') }}" class="btn-link">
-            <h2>Products</h2>
-          </a>          
-    </div>
+    </nav>
+</header>
 
-  </body>
-  </html>
+<div id="fashion">
+    <a href="{{ path('app_products') }}" class="btn-link">
+        <h2>Products</h2>
+    </a>
+</div>
+
+</body>
+</html>

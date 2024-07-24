@@ -1,12 +1,21 @@
 {% extends 'base.html.twig' %}
 
+{% block meta %}
+    <meta name="description" content="Gérez vos informations personnelles sur votre compte OldMoneyClothes. Modifiez votre mot de passe et gérez vos adresses.">
+    <meta property="og:title" content="Mon compte - OldMoneyClothes">
+    <meta property="og:description" content="Gérez vos informations personnelles sur votre compte OldMoneyClothes. Modifiez votre mot de passe et gérez vos adresses.">
+    <meta property="og:url" content="{{ app.request.uri }}">
+    <meta name="twitter:card" content="summary_large_image">
+{% endblock %}
+
 {% block title %}Mon compte - OldMoneyClothes{% endblock %}
 
 {% block content %}
-<h1>Mon compte</h1>
-<p>Bienvenue <strong>{{app.user.firstname}}</strong> dans votre compte <br> C'est dans cet espace que vous allez pouvoir gérer toutes vos informations personnelles</p>
-<hr>
-<a href="{{path('app_account_password')}}">Modifier mon mot de passe</a><br>
-<a href="{{path('app_account_address')}}">Gérer mes adresses</a><br>
-
+<div class="container mt-5">
+    <h1>Mon compte</h1>
+    <p>Bienvenue <strong>{{ app.user.firstname }}</strong> dans votre compte. <br> C'est dans cet espace que vous allez pouvoir gérer toutes vos informations personnelles.</p>
+    <hr>
+    <a href="{{ path('app_account_password') }}" class="btn btn-primary btn-sm mb-2">Modifier mon mot de passe</a><br>
+    <a href="{{ path('app_account_address') }}" class="btn btn-secondary btn-sm mb-2">Gérer mes adresses</a>
+</div>
 {% endblock %}

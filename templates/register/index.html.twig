@@ -1,8 +1,21 @@
 {% extends 'base.html.twig' %}
 
+{% block meta %}
+    <meta name="description" content="Inscrivez-vous sur notre site pour accéder à des offres exclusives et bénéficier de nos services.">
+    <meta property="og:title" content="Inscription - The Fundamentals">
+    <meta property="og:description" content="Inscrivez-vous sur notre site pour accéder à des offres exclusives et bénéficier de nos services.">
+    <meta property="og:url" content="{{ app.request.uri }}">
+    <meta name="twitter:card" content="summary_large_image">
+{% endblock %}
+
+{% block title %}Inscription - The Fundamentals{% endblock %}
+
 {% block content %}
-    <h1>Inscription</h1>
+    <div class="container">
+        <h1>Inscription</h1>
 
-    {{ form(form) }}
-
+        <div class="form-container">
+            {{ form(form) }}
+        </div>
+    </div>
 {% endblock %}

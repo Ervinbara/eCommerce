@@ -1,42 +1,50 @@
 {% extends 'base.html.twig' %}
 
+{% block meta %}
+    <meta name="description" content="Validez votre commande en choisissant votre adresse de livraison et en vérifiant les détails de votre commande avant de passer à l'étape suivante.">
+    <meta property="og:title" content="Valider ma commande - The Fundamentals">
+    <meta property="og:description" content="Choisissez votre adresse de livraison et vérifiez le récapitulatif de votre commande avant de passer à l'étape suivante.">
+    <meta property="og:url" content="{{ app.request.uri }}">
+    <meta property="og:image" content="/path/to/image.jpg"> <!-- Ajoutez une image pertinente -->
+    <meta name="twitter:card" content="summary_large_image">
+{% endblock %}
+
 {% block title %}Valider ma commande{% endblock %}
 
 {% block content %}
-<h2>Je passe ma commande</h2>
-<p>Choisissez vos préférences avant de passer votre commande</p>
+    <div class="container">
+        <h2>Je passe ma commande</h2>
+        <p>Choisissez vos préférences avant de passer votre commande.</p>
 
-<div class="row">
-    <div class="col-md-6">
-        {% set formHtml %}
-            {{form_start(form, {action:path('app_order_recap')} )}}
-                <b>
-                    {{ form_label(form.addresses, 'Choisissez votre adresse de livraison')}}
-                </b>
-                <a href="{{path('app_account_address_add')}}">Ajouter une nouvelle adresse</a>
-            {{form_end(form)}}
-        {% endset %}
-
-        {{formHtml|replace({'[br]' : '<br/>'})|raw }}
-
-    </div>
-    <div class="col-md-6">
-        <b>Récapitulatif de ma commande</b> <br>
-        {% for key,product in cart %}
-        <div class="row {% if key > 0 %}mt-2{% endif %}">
-            <div class="col-2">
-                <img src="/uploads/{{product.product.image}}" alt="{{product.product.name}}" height="75px">
+        <div class="row">
+            <div class="col-md-6">
+                {{ form_start(form, { action: path('app_order_recap') }) }}
+                    <div class="form-group">
+                        <label for="{{ form.addresses.vars.id }}">
+                            Choisissez votre adresse de livraison
+                        </label>
+                        {{ form_widget(form.addresses) }}
+                        <a href="{{ path('app_account_address_add') }}" class="btn btn-link">Ajouter une nouvelle adresse</a>
+                    </div>
+                {{ form_end(form) }}
             </div>
-            <div class="col-8 my-auto">
-                {{product.product.name}} <br/>
-                <small>{{product.product.subtitle}}</small>
-            </div>
-            <div class="col-2 my-auto">
-                x {{product.quantity}}
+            <div class="col-md-6">
+                <h3>Récapitulatif de ma commande</h3>
+                {% for key, product in cart %}
+                    <div class="row {% if key > 0 %}mt-2{% endif %}">
+                        <div class="col-2">
+                            <img src="/uploads/{{ product.product.image }}" alt="{{ product.product.name }}" height="75px">
+                        </div>
+                        <div class="col-8 my-auto">
+                            <strong>{{ product.product.name }}</strong><br/>
+                            <small>{{ product.product.subtitle }}</small>
+                        </div>
+                        <div class="col-2 my-auto">
+                            x {{ product.quantity }}
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
         </div>
-        {% endfor %}
     </div>
-</div>
-
 {% endblock %}

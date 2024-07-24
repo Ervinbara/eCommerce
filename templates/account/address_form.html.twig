@@ -1,40 +1,51 @@
 {% extends 'base.html.twig' %}
 
+{% block meta %}
+    <meta name="description" content="Ajouter ou modifier une adresse pour votre compte OldMoneyClothes.">
+    <meta property="og:title" content="Ajouter une adresse - OldMoneyClothes">
+    <meta property="og:description" content="Ajouter ou modifier une adresse pour votre compte OldMoneyClothes.">
+    <meta property="og:url" content="{{ app.request.uri }}">
+    <meta name="twitter:card" content="summary_large_image">
+{% endblock %}
+
 {% block title %}Ajouter une adresse - OldMoneyClothes{% endblock %}
 
 {% block content %}
-<h1>Gérer une adresse</h1>
-<a href="{{path('app_account_address')}}">Retour</a>
-<hr>
-{{form_start(form)}}
-<div class="row">
-    <div class="col-md-12">
-        {{form_row(form.name)}}
+<div class="container mt-5">
+    <h1>Gérer une adresse</h1>
+    <a href="{{ path('app_account_address') }}" class="btn btn-secondary mb-3">Retour</a>
+    <hr>
+    {{ form_start(form) }}
+    <div class="row">
+        <div class="col-md-12">
+            {{ form_row(form.name) }}
+        </div>
+        <div class="col-md-6">
+            {{ form_row(form.firstname) }}
+        </div>
+        <div class="col-md-6">
+            {{ form_row(form.lastname) }}
+        </div>
+        <div class="col-md-6">
+            {{ form_row(form.company) }}
+        </div>
+        <div class="col-md-6">
+            {{ form_row(form.address) }}
+        </div>
+        <div class="col-md-6">
+            {{ form_row(form.postal) }}
+        </div>
+        <div class="col-md-6">
+            {{ form_row(form.city) }}
+        </div>
+        <div class="col-md-6">
+            {{ form_row(form.country) }}
+        </div>
+        <div class="col-md-6">
+            {{ form_row(form.phone) }}
+        </div>
     </div>
-    <div class="col-md-6">
-        {{form_row(form.firstname)}}
-    </div>
-    <div class="col-md-6">
-        {{form_row(form.lastname)}}
-    </div>
-    <div class="col-md-6">
-        {{form_row(form.company)}}
-    </div>
-    <div class="col-md-6">
-        {{form_row(form.address)}}
-    </div>
-    <div class="col-md-6">
-        {{form_row(form.postal)}}
-    </div>
-    <div class="col-md-6">
-        {{form_row(form.city)}}
-    </div>
-    <div class="col-md-6">
-        {{form_row(form.country)}}
-    </div>
-    <div class="col-md-6">
-        {{form_row(form.phone)}}
-    </div>
+    <button type="submit" class="btn btn-primary mt-3">Enregistrer</button>
+    {{ form_end(form) }}
 </div>
-{{form_end(form)}}
 {% endblock %}

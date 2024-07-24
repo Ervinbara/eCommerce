@@ -1,92 +1,109 @@
 @font-face {
-    font-family: Moderne Sans;
-    src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/moderne_sans.woff2);
-  }
-  * {
-    box-sizing: border-box;
-  }
-  
-  body {
-    margin: 0;
-    background: #000;
-    background-size: cover;
-  }
-  
-  video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
-    -o-object-position: center;
-       object-position: center;
-  }
-  
-  div#fashion {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  header {
-    position: fixed;
-    width: 100%;
-    text-align: center;
-    color: white;
-    transition: 0.4s;
-  }
-  
-  header:hover {
-    background: rgba(255, 255, 255, 0.4);
-    color: #000;
-  }
-  
+  font-family: 'Moderne Sans';
+  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/moderne_sans.woff2') format('woff2');
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #000;
+  background-size: cover;
+}
+
+video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+div#fashion {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  color: white;
+  transition: 0.4s;
+}
+
+header:hover {
+  background: rgba(255, 255, 255, 0.4);
+  color: #000;
+}
+
+h1 {
+  font-family: 'Moderne Sans', sans-serif;
+  text-align: center;
+  font-size: 2rem;
+  width: 100%;
+  letter-spacing: 0.5rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: inherit;
+  padding: 1rem;
+  outline: none;
+}
+
+nav a:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.btn-link {
+  display: inline-block;
+  padding: 10px 20px;
+  font-family: 'Century Schoolbook', Century Schoolbook L, Georgia, serif;
+  font-size: 4vmin;
+  text-align: center;
+  margin: 2rem 3rem 0;
+  mix-blend-mode: overlay;
+  color: #fff;
+  text-decoration: none;
+  background-color: #333;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn-link:hover {
+  background-color: #555;
+}
+
+.btn-link h2 {
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
   h1 {
-    font-family: Moderne Sans, sans-serif;
-    text-align: center;
-    font-size: 2rem;
-    width: 100%;
-    letter-spacing: 0.5rem;
+      font-size: x-large;
   }
-
-  
   nav a {
-    text-decoration: none;
-    color: inherit;
-    padding: 1rem;
+      font-size: medium;
   }
-  
-  .btn-link {
-    display: inline-block;
-    padding: 10px 20px;
-    font-family: Century Schoolbook, Century Schoolbook L, Georgia, serif;
-    font-size: 4vmin;
-    text-align: center;
-    margin: 2rem 3rem 0;
-    mix-blend-mode: overlay;
-    color: #fff;
-    text-decoration: none; /* Pour enlever le soulignement du lien */
-    background-color: #333; /* Couleur du fond du bouton */
-    border-radius: 5px; /* Coins arrondis */
-    transition: background-color 0.3s; /* Animation de transition au survol */
-  }
-  
-  .btn-link:hover {
-    background-color: #555; /* Couleur du fond au survol */
-  }
-  
-  .btn-link h2 {
-    margin: 0; /* Supprime la marge du h2 pour éviter l'espacement supplémentaire */
-  }
+}
 
-  @media screen and (max-width: 768px) {
-    h1{
-      font-size: x-large; /* Par exemple, ajustez la taille selon vos préférences */
-    }
-    nav a {
-        font-size: medium;
-    }
+@media screen and (max-width: 480px) {
+  .btn-link {
+      font-size: 5vmin;
   }
+  h1 {
+      font-size: large;
+  }
+  nav a {
+      font-size: small;
+  }
+}
